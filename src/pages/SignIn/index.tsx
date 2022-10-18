@@ -1,9 +1,9 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { PageContainer } from "../styles";
 
 const SignIn: React.FC = () => {
-  return <div />;
+  return <PageContainer>SignIn</PageContainer>;
 };
 
 export default SignIn;

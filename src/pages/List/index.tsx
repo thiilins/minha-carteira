@@ -1,9 +1,9 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { PageContainer } from '../styles';
 
 const List: React.FC = () => {
-  return <div />;
+  return <PageContainer>List</PageContainer>;
 };
 
 export default List;
