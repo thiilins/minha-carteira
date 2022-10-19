@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src/**/**/*"],
+  "include": ["./src/**/**/**/*"],
   "files": ["./src/styles/styled.d.ts"],
   "extends": "./tsconfig.paths.json" // adiciona esta linha 👈
 }

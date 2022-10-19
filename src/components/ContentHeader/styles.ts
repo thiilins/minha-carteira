@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
-
+import { IVariantColor } from "@/types/colors";
+interface ITitleContainerProps {
+  tagColor: IVariantColor;
+}
 export const Container = styled.header`
   ${({ theme }) => css`
     display: flex;
@@ -8,14 +11,22 @@ export const Container = styled.header`
     align-items: center;
   `}
 `;
-export const TitleContainer = styled.div`
+export const Controls = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  `}
+`;
+
+export const TitleContainer = styled.div<ITitleContainerProps>`
+  ${({ theme, tagColor }) => css`
     > h1 {
       position: relative;
       &::after {
         content: " ";
         display: block;
-        background-color: ${theme.colors.info};
+        background-color: ${theme.colors[tagColor]};
         width: 7rem;
         position: absolute;
         bottom: -1rem;
@@ -23,12 +34,5 @@ export const TitleContainer = styled.div`
         height: 0.5rem;
       }
     }
-  `}
-`;
-export const Controls = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    gap: 2rem;
   `}
 `;

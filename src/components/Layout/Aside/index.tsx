@@ -23,23 +23,23 @@ const Aside: React.FC = () => {
         <h2>Minha Carteira</h2>
       </Header>
       <MenuContainer>
-        <MenuItem>
+        <MenuItem to="/dashboard">
           <RiDashboardLine />
           Dashboard
         </MenuItem>
-        <MenuItem>
+        <MenuItem to="/add-new">
           <RiAddFill />
           Novo Registro
         </MenuItem>
-        <MenuItem>
+        <MenuItem to="/list/input">
           <RiArrowUpLine />
           Entradas
         </MenuItem>
-        <MenuItem>
+        <MenuItem to="/list/output">
           <RiArrowDownLine />
           Saídas
         </MenuItem>
-        <MenuItem>
+        <MenuItem to="/exit">
           <RiLogoutBoxRLine />
           Sair
         </MenuItem>

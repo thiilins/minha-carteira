@@ -29,9 +29,7 @@ export default createGlobalStyle`${({ theme }) => css`
   textarea {
     resize: both;
   }
-  #root {
-    overflow: hidden;
-  }
+
   ul,
   ol {
     margin: 0;
@@ -111,17 +109,5 @@ export default createGlobalStyle`${({ theme }) => css`
     font-size: ${theme.fonts.size.xSmall};
     color: ${theme.colors.primaryText};
     line-height: 1;
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: ${theme.colors.primary}30;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: ${theme.colors.primary};
-      border-radius: 20px; /* roundness of the scroll thumb */
-    }
   }
 `}`;
