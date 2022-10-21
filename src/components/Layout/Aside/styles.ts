@@ -6,7 +6,7 @@ export const Container = styled.div`
     grid-area: AS;
     display: flex;
     flex-direction: column;
-    background-color: ${theme.colors.headerBackground};
+    background-color: ${theme.colors.secondary};
     padding: 2rem;
     gap: 3rem;
     border-right: 1px solid ${theme.colors.primaryText}30;

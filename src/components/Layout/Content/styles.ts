@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   ${({ theme }) => css`
     grid-area: CT;
-    background-color: ${theme.colors.pageBackground};
+    background-color: ${theme.colors.primary};
     /* color: ${theme.colors.secondaryText}; */
     padding: 3rem;
     overflow-y: auto;
@@ -15,13 +15,13 @@ export const Container = styled.div`
       width: 10px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: ${theme.colors.pageBackground}90;
+      background-color: ${theme.colors.primary}90;
       border-radius: 1rem;
-      border-left: 0.5rem solid ${theme.colors.headerBackground};
-      border-right: 0.5rem solid ${theme.colors.headerBackground};
+      border-left: 0.5rem solid ${theme.colors.secondary};
+      border-right: 0.5rem solid ${theme.colors.secondary};
     }
     ::-webkit-scrollbar-track {
-      background-color: ${theme.colors.headerBackground};
+      background-color: ${theme.colors.secondary};
     }
   `}
 `;

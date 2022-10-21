@@ -8,7 +8,7 @@ interface ITagProps {
 export const Container = styled.li`
   ${({ theme, color }) => css`
     display: flex;
-    background-color: ${theme.colors.headerBackground}90;
+    background-color: ${theme.colors.secondary}90;
     border-radius: 0.5rem;
     padding: 1.2rem 1rem;
     position: relative;
@@ -34,7 +34,7 @@ export const Tag = styled.div<ITagProps>`
       bottom: 25%;
       z-index: 10;
       border-radius: 0.5rem;
-      border: 4px solid ${theme.colors.pageBackground};
+      border: 4px solid ${theme.colors.primary};
     `}
 `;
 export const TitleContainer = styled.div`

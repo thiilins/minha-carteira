@@ -12,8 +12,6 @@ declare module "styled-components" {
       info: string;
       error: string;
       warning: string;
-      pageBackground: string;
-      headerBackground: string;
       red: string;
       redLight: string;
       redDark: string;

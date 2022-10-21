@@ -4,17 +4,15 @@ export default {
   ...defaultTheme,
   title: "light",
   colors: {
-    primary: "#0a873f",
-    secondary: "#0fb756",
+    primary: "#fdfdfd",
+    secondary: "#047d89",
     primaryText: "#fdfdfd",
     secondaryText: "#333333",
     success: "#38761d",
     info: "#3d85c6",
     error: "#c80909",
     warning: "#f49e00",
-    pageBackground: "#fdfdfd",
-    headerBackground: "#047d89",
-    
+
     red: "#f44336",
     redLight: "#f6685e",
     redDark: "#8a1c1c",

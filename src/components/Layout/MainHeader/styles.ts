@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   ${({ theme }) => css`
     grid-area: MH;
-    background-color: ${theme.colors.headerBackground};
+    background-color: ${theme.colors.secondary};
     width: 100%;
     height: 100%;
     display: flex;
