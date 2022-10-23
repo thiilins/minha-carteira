@@ -118,7 +118,13 @@ export default createGlobalStyle`${({ theme }) => css`
   }
   @media (max-width: 600px) {
     .card {
+      &:not(.walletBox, .history__card, .status__box) {
+        grid-template-columns: 1fr 1fr;
+      }
       min-width: 90vw;
+      & h2 {
+        font-size: 20px;
+      }
     }
   }
   @media (max-width: 414px) {
@@ -145,6 +151,9 @@ export default createGlobalStyle`${({ theme }) => css`
   @media (min-width: 601px) and (max-width: 791px) {
     .card {
       min-width: 100%;
+      & h2 {
+        font-size: 22px;
+      }
     }
   }
   @media (min-width: 791px) and (max-width: 820px) {
@@ -156,6 +165,9 @@ export default createGlobalStyle`${({ theme }) => css`
     .card {
       &:not(.walletBox) {
         min-width: 100%;
+      }
+      &.history__card h2 {
+        font-size: 22px;
       }
       &.walletBox {
         width: 30%;
@@ -224,7 +236,6 @@ export default createGlobalStyle`${({ theme }) => css`
       &.history__card {
         min-width: unset;
         width: 100% !important;
-        padding: 2rem;
       }
 
       &.status__box {
