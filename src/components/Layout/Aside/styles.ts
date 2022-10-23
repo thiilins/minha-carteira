@@ -1,14 +1,56 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+interface IContainerProps {
+  menuIsOpen?: boolean;
+}
 
-export const Container = styled.div`
-  ${({ theme }) => css`
+export const Container = styled.div<IContainerProps>`
+  ${({ theme, menuIsOpen }) => css`
     grid-area: AS;
     display: flex;
     flex-direction: column;
     background-color: ${theme.colors.secondary};
     gap: 3rem;
     border-right: 1px solid ${theme.colors.primaryText}30;
+    position: relative;
+    .toggle {
+      padding: 0 10px;
+      display: none;
+    }
+    @media (max-width: 600px) {
+      padding-left: 7px;
+      position: fixed;
+      z-index: 5;
+      overflow: hidden;
+      width: 250px;
+      height: ${menuIsOpen ? "100vh" : "70px"};
+      ${!menuIsOpen
+        ? css`
+            border: none;
+            border-bottom: 1px solid ${theme.colors.primaryText}30;
+          `
+        : css`
+            ${MenuContainer} {
+              display: flex;
+            }
+            ${Header} {
+              display: flex;
+            }
+          `};
+    }
+    @media (max-width: 790px) {
+      min-height: 100%;
+      & div.content {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      div.toggle {
+        padding: 0 10px;
+        display: ${menuIsOpen ? "flex" : "none"};
+      }
+    }
   `}
 `;
 export const Header = styled.header`
@@ -32,6 +74,9 @@ export const Header = styled.header`
         height: 80px;
       }
     }
+    @media (max-width: 600px) {
+      display: none;
+    }
   `}
 `;
 export const LogoImage = styled.img`
@@ -44,8 +89,10 @@ export const MenuContainer = styled.nav`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    /* padding: 1rem; */
     gap: 1rem;
+    @media (max-width: 600px) {
+      display: none;
+    }
   `}
 `;
 

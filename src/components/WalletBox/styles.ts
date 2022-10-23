@@ -55,7 +55,7 @@ export const Header = styled.div`
     h2 * {
       position: absolute;
       font-size: 3.5rem;
-      z-index: 10;
+      z-index: 2;
     }
   `}
 `;

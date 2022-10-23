@@ -5,7 +5,9 @@ import ToggleTheme from "../ToggleTheme";
 const MainHeader: React.FC = () => {
   return (
     <Container>
-      <ToggleTheme />
+      <div className="toggle">
+        <ToggleTheme />
+      </div>
       <Profile>
         <Welcome>Olá,</Welcome>
         <Username>Thiago Lins</Username>

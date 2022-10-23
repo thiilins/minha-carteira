@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const FormContent = styled.div`
   ${({ theme }) => css`
     position: relative;
-    z-index: 10;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,6 +52,30 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 3rem;
+  `}
+`;
+export const DemoData = styled.table`
+  ${({ theme }) => css`
+    width: 90%;
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr 70px;
+      border-bottom: 1px solid ${theme.colors.warning};
+      &.colSpan {
+        grid-template-columns: 100%;
+        border: 1px solid ${theme.colors.warning}30;
+        background-color: ${theme.colors.warning}30;
+      }
+      th {
+        padding: 1rem;
+      }
+      td,
+      th {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   `}
 `;
 
