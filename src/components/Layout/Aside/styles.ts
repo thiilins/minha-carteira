@@ -10,74 +10,69 @@ export const Container = styled.div<IContainerProps>`
     display: flex;
     flex-direction: column;
     background-color: ${theme.colors.secondary};
-    gap: 3rem;
     border-right: 1px solid ${theme.colors.primaryText}30;
     position: relative;
     div.toggle {
-      padding: 0 10px;
       display: none;
+      padding-left: 1rem;
     }
-    @media (max-width: 600px) {
-      padding-left: 7px;
+    .content {
+      display: flex;
+      height: 100%;
+      padding: 3rem 0;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @media (max-width: 790px) {
       position: fixed;
       z-index: 5;
-      overflow: hidden;
       width: 250px;
       height: ${menuIsOpen ? "100vh" : "70px"};
       ${!menuIsOpen
         ? css`
             border: none;
             border-bottom: 1px solid ${theme.colors.primaryText}30;
+            div.toggle {
+              display: none;
+            }
+
+            overflow: hidden;
+            background-color: transparent;
+            .content {
+              display: none;
+            }
           `
         : css`
             ${MenuContainer} {
               display: flex;
             }
-            ${Header} {
+            div.toggle {
+              display: flex;
+            }
+            .content {
               display: flex;
             }
           `};
-    }
-    @media (max-width: 790px) {
-      min-height: 100%;
-      & div.content {
-        min-height: 70vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      div.toggle {
-        padding: 0 10px;
-        display: ${menuIsOpen ? "flex" : "none"};
-        display: flex;
-      }
     }
   `}
 `;
 export const Header = styled.header`
   ${({ theme }) => css`
+    height: 70px;
     display: flex;
     align-items: center;
+    padding-left: 1rem;
     gap: 1rem;
     color: ${theme.colors.primaryText};
-    padding: 1.5rem;
-    h2 {
-      display: none;
-    }
-
-    @media (max-width: 791px) {
-      justify-content: center;
+    @media (max-width: 790px) {
+      gap: none;
       h2 {
         display: none;
       }
       img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
       }
-    }
-    @media (max-width: 600px) {
-      display: none;
     }
   `}
 `;
@@ -85,6 +80,26 @@ export const LogoImage = styled.img`
   ${({ theme }) => css`
     width: 40px;
     height: 40px;
+    @media (max-width: 790px) {
+      display: none;
+    }
+  `}
+`;
+export const ToggleMenu = styled.button`
+  ${({ theme }) => css`
+    font-size: 4rem;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border: 1px solid ${theme.colors.warning};
+    background-color: ${theme.colors.warning};
+    color: ${theme.colors.primaryText};
+    border-radius: 1rem;
+    @media (min-width: 790px) {
+      display: none;
+    }
   `}
 `;
 export const MenuContainer = styled.nav`
@@ -92,7 +107,7 @@ export const MenuContainer = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    @media (max-width: 600px) {
+    @media (max-width: 790px) {
       display: none;
     }
   `}

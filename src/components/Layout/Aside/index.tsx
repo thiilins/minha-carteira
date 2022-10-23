@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Logo from "@assets/logo.svg";
 import {
   RiDashboardLine,
@@ -6,6 +6,8 @@ import {
   RiArrowDownLine,
   RiLogoutBoxRLine,
   RiAddFill,
+  RiCloseFill,
+  RiMenu2Fill,
 } from "react-icons/ri";
 import {
   Container,
@@ -14,18 +16,27 @@ import {
   MenuContainer,
   MenuItem,
   MenuBtn,
+  ToggleMenu,
 } from "./styles";
 import { useAuth } from "@/contexts/AuthContext";
 import ToggleTheme from "../ToggleTheme";
+
 const Aside: React.FC = () => {
   const { signOut } = useAuth();
-  const [menuIsOpen, setMenuIsOpen] = useState(!false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const handleOpenCloseMenu = useCallback(() => {
+    setMenuIsOpen((prev) => !prev);
+  }, []);
   return (
     <Container menuIsOpen={menuIsOpen}>
       <Header className="logo__box">
+        <ToggleMenu onClick={() => handleOpenCloseMenu()}>
+          {menuIsOpen ? <RiCloseFill /> : <RiMenu2Fill />}
+        </ToggleMenu>
         <LogoImage src={Logo} alt="Logo Minha Carteira" />
         <h2>Minha Carteira</h2>
       </Header>
+
       <div className="content">
         <MenuContainer>
           <MenuItem to="/dashboard">

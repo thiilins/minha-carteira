@@ -12,9 +12,15 @@ export const Container = styled.div`
     justify-content: space-between;
     color: ${theme.colors.primaryText};
     border-bottom: 1px solid ${theme.colors.secondaryText}30;
+    .logo {
+      display: none;
+    }
     @media (max-width: 790px) {
       .toggleWrapper {
         display: none;
+      }
+      .logo {
+        display: flex;
       }
     }
   `}
