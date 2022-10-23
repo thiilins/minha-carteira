@@ -5,12 +5,13 @@ export default {
   title: "light",
   colors: {
     primary: "#fdfdfd",
-    secondary: "#047d89",
-    primaryText: "#fdfdfd",
+    secondary: "#004c5c",
+    primaryText: "#171717",
     secondaryText: "#333333",
-    success: "#38761d",
-    info: "#3d85c6",
-    error: "#c80909",
+    white: "#fdfdfd",
+    success: "#63cc35",
+    info: "#71a7d6",
+    error: "#d63131",
     warning: "#f49e00",
 
     red: "#f44336",

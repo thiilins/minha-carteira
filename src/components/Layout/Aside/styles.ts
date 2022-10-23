@@ -9,7 +9,7 @@ export const Container = styled.div`
     background-color: ${theme.colors.secondary};
     padding: 2rem;
     gap: 3rem;
-    border-right: 1px solid ${theme.colors.primaryText}30;
+    border-right: 1px solid ${theme.colors.white}30;
   `}
 `;
 export const Header = styled.header`
@@ -17,7 +17,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: ${theme.colors.primaryText};
+    color: ${theme.colors.white};
   `}
 `;
 export const LogoImage = styled.img`
@@ -37,7 +37,7 @@ export const MenuContainer = styled.nav`
 export const MenuItem = styled(NavLink)`
   ${({ theme }) => css`
     display: flex;
-    color: ${theme.colors.primaryText};
+    color: ${theme.colors.white};
     transition: all 0.4s;
     align-items: center;
     gap: 0.5rem;
@@ -47,7 +47,7 @@ export const MenuItem = styled(NavLink)`
       color: ${theme.colors.warning} !important;
     }
     &:visited {
-      color: ${theme.colors.primaryText};
+      color: ${theme.colors.white};
     }
     &:hover {
       opacity: 0.7;

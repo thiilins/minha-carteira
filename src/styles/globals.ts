@@ -19,10 +19,12 @@ export default createGlobalStyle`${({ theme }) => css`
     }
   }
   html {
+    overflow: hidden;
     font-size: 62.5%;
     font-family: "Ubuntu", sans-serif;
     color: ${theme.colors.primaryText};
   }
+
   fieldset {
     border: none;
   }
@@ -109,5 +111,31 @@ export default createGlobalStyle`${({ theme }) => css`
     font-size: ${theme.fonts.size.xSmall};
     color: ${theme.colors.primaryText};
     line-height: 1;
+  }
+  @media screen and (max-width: 500px) and (min-width: 414px) {
+    html {
+      font-size: 55%;
+    }
+    small {
+      font-size: 12px !important;
+    }
+    .card {
+      min-width: calc(100vw - 50px) !important;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+  @media screen and (max-width: 413px) {
+    html {
+      font-size: 55%;
+    }
+    small {
+      font-size: 12px !important;
+    }
+    .card {
+      min-width: 380px !important;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
 `}`;

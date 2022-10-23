@@ -1,0 +1,81 @@
+import React from "react";
+import formatCurrency from "@/utils/formatCurrency";
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
+import { Container, Header, Legend, LegendContainer } from "./styles";
+export interface IHistoryBoxData {
+  month: string;
+  amountEntry: number;
+  amountOutput: number;
+}
+interface IHistoryBoxProps {
+  data: IHistoryBoxData[];
+  lineColorAmountEntry: string;
+  lineColorAmountOutput: string;
+  year: string | number;
+}
+const HistoryBox: React.FC<IHistoryBoxProps> = ({
+  data,
+  lineColorAmountEntry,
+  lineColorAmountOutput,
+  year,
+}) => (
+  <Container className="card">
+    <Header>
+      <h2>Histórico de Saldo - {year}</h2>
+      <LegendContainer>
+        <Legend color="success">
+          <div />
+          Entradas
+        </Legend>
+        <Legend color="error">
+          <div />
+          Saídas
+        </Legend>
+      </LegendContainer>
+    </Header>
+    <ResponsiveContainer>
+      <LineChart
+        data={data}
+        margin={{ bottom: 5, right: 20, left: 20, top: 5 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
+        <XAxis dataKey="month" stroke="#cecece" />
+        <Tooltip
+          formatter={(value) => formatCurrency(Number(value))}
+          contentStyle={{
+            borderRadius: "2rem",
+            padding: "1rem",
+            paddingBottom: "2rem",
+          }}
+        />
+        <Line
+          type="monotone"
+          dataKey={"amountEntry"}
+          name="Entradas"
+          stroke={lineColorAmountEntry}
+          strokeWidth={5}
+          dot={{ r: 5 }}
+          activeDot={{ r: 8 }}
+        />
+        <Line
+          type="monotone"
+          dataKey={"amountOutput"}
+          name="Saídas"
+          stroke={lineColorAmountOutput}
+          strokeWidth={5}
+          dot={{ r: 5 }}
+          activeDot={{ r: 8 }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  </Container>
+);
+
+export default HistoryBox;

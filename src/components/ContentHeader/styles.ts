@@ -23,6 +23,7 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
   ${({ theme, tagColor }) => css`
     > h1 {
       position: relative;
+      color:${theme.colors.primaryText};
       &::after {
         content: " ";
         display: block;

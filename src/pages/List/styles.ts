@@ -25,15 +25,25 @@ export const NoContent = styled.div`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
     padding: 2rem;
-    color: ${theme.colors.warning};
+    color: ${theme.colors.white};
     font-size: 1.8rem;
-    border: 2px solid ${theme.colors.warning};
+    border: 2px solid ${theme.colors.secondary};
     border-radius: 1rem;
-    background-color: ${theme.colors.warning}10;
+    background-color: ${theme.colors.secondary};
+    > img {
+      width: 200px;
+      opacity: 0.6;
+    }
+    .text__box {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
     svg {
       width: 3rem;
       height: 3rem;
