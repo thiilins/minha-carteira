@@ -18,6 +18,7 @@ export const Container = styled.div`
     gap: 2rem;
     background-color: ${theme.colors.secondary};
     color: ${theme.colors.primaryText};
+ 
   `}
 `;
 

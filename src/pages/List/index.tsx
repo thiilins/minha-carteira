@@ -46,8 +46,8 @@ const List: React.FC = () => {
 
   const config = useMemo((): IConfigResponse => {
     return action === "output"
-      ? { title: "Saídas", color: "warning", values: outputData }
-      : { title: "Entradas", color: "success", values: inputData };
+      ? { title: "Saídas", color: "error", values: outputData }
+      : { title: "Entradas", color: "info", values: inputData };
   }, [action]);
   useEffect(() => {
     setMonthSelected(new Date().getMonth() + 1);
@@ -95,7 +95,7 @@ const List: React.FC = () => {
           description: item.description,
           amountFormatted: formatCurrency(+item.amount),
           dateFormatted: formatDate(item.date),
-          tagColor: item.frequency !== "eventual" ? "success" : "warning",
+          tagColor: item.frequency !== "eventual" ? "info" : "error",
         };
       });
     return setData(response);
@@ -138,7 +138,7 @@ const List: React.FC = () => {
         <Filters>
           <FilterBtn
             type="button"
-            tagColor="success"
+            tagColor="info"
             isActive={frequencyFilterSelected.includes("recorrente")}
             onClick={() => handleFrequencyClick("recorrente")}
           >
@@ -146,7 +146,7 @@ const List: React.FC = () => {
           </FilterBtn>
           <FilterBtn
             type="button"
-            tagColor="warning"
+            tagColor="error"
             isActive={frequencyFilterSelected.includes("eventual")}
             onClick={() => handleFrequencyClick("eventual")}
           >

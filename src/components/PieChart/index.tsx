@@ -33,7 +33,7 @@ const PieChartBox: React.FC<IPieChartsComponentProps> = ({ data }) => (
       </LegendContainer>
     </SideLeft>
     <SideRight>
-      <ResponsiveContainer minHeight={250} minWidth={250}>
+      <ResponsiveContainer minHeight={180} minWidth={180} maxHeight={450}>
         <PieChart>
           <Tooltip
             formatter={(value) => `${String(value)}%`}

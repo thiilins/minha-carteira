@@ -29,8 +29,8 @@ const BarChartBox: React.FC<IBarChartBox> = ({ data, title }) => {
         <h2>{title}</h2>
         <LegendContainer>
           {data.map((item, index) => (
-            <Legend color={item.color} key={index}>
-              <div>{item.percent}%</div>
+            <Legend color={item.color} className="tag" key={index}>
+              <div className="tag">{item.percent}%</div>
               <span className="label">{item.name}</span>
             </Legend>
           ))}

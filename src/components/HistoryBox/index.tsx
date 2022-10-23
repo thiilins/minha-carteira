@@ -28,7 +28,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
   strokeColor,
   year,
 }) => (
-  <Container className="card">
+  <Container className="card history__card">
     <Header>
       <h2>Histórico de Saldo - {year}</h2>
       <LegendContainer>
@@ -42,7 +42,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
         </Legend>
       </LegendContainer>
     </Header>
-    <ResponsiveContainer>
+    <ResponsiveContainer minHeight={150}>
       <LineChart
         data={data}
         margin={{ bottom: 5, right: 20, left: 20, top: 5 }}

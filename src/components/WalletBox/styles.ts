@@ -31,14 +31,13 @@ export const Container = styled.div<IContainerProps>`
         right: -10px;
       }
     }
-    /* * {
-      user-select: none;
-    } */
     &:hover {
       opacity: 0.9;
     }
+
   `}
 `;
+
 export const Footer = styled.small`
   ${({ theme }) => css`
     font-size: 1.1rem;
@@ -49,7 +48,7 @@ export const Header = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     span {
       font-size: 1.8rem;
     }

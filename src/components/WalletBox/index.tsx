@@ -32,7 +32,7 @@ const WalletBox: React.FC<IWalletBoxProps> = ({
     return iconOptions[icon];
   }, [icon]);
   return (
-    <Container bgColor={color} className="card">
+    <Container bgColor={color} className="card walletBox">
       <Header>
         <span>{title}</span>
         <h2>

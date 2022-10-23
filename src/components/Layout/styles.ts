@@ -16,4 +16,18 @@ export const Container = styled.div`
       "MH"
       "CT";
   }
+  @media (min-width: 601px) and (max-width: 791px) {
+    grid-template-columns: 200px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+      "AS MH"
+      "AS CT";
+  }
+  @media (min-width: 791px) and (max-width: 1024px) {
+    grid-template-columns: 220px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+      "AS MH"
+      "AS CT";
+  }
 `;

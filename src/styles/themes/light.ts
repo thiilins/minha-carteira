@@ -10,8 +10,9 @@ export default {
     primaryText: "#000",
     secondaryText: "#333333",
     success: "#00c853",
-    info: "#3a9cd4",
-    error: "#f44336",
-    warning: "#f49e00",
+    info: "#4E41F0",
+    error: "#E44C4E",
+
+    warning: "#ffb71b",
   },
 };

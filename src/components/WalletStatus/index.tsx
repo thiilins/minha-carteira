@@ -44,7 +44,7 @@ const WalletStatus: React.FC<IWalletStatusProps> = ({ balance, entries }) => {
     }
   }, [balance, entries]);
   return (
-    <Container className="card">
+    <Container className="card status__box">
       <img src={data.img} alt="status" />
       <Content>
         <div className="header">

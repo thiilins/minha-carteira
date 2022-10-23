@@ -23,6 +23,7 @@ export const Container = styled.div`
       justify-content: center;
       max-height: 200px;
     }
+
   `}
 `;
 export const Content = styled.div`

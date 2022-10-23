@@ -18,6 +18,10 @@ export default createGlobalStyle`${({ theme }) => css`
       user-select: none;
     }
   }
+  button {
+    background-color: transparent;
+    border: 0;
+  }
   html {
     overflow: hidden;
     font-size: 62.5%;
@@ -112,30 +116,125 @@ export default createGlobalStyle`${({ theme }) => css`
     color: ${theme.colors.primaryText};
     line-height: 1;
   }
-  @media screen and (max-width: 500px) and (min-width: 414px) {
-    html {
-      font-size: 55%;
-    }
-    small {
-      font-size: 12px !important;
-    }
+  @media (max-width: 600px) {
     .card {
-      min-width: calc(100vw - 50px) !important;
-      padding-left: 25px;
-      padding-right: 25px;
+      min-width: 90vw;
     }
   }
-  @media screen and (max-width: 413px) {
-    html {
-      font-size: 55%;
+  @media (max-width: 414px) {
+    .page__header {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1rem;
+      gap: 30px;
+      h1 {
+        font-size: 4rem;
+        &::after {
+          bottom: -1.5rem;
+        }
+      }
+      > div {
+        width: 90vw;
+      }
+      select {
+        flex: 1;
+        min-width: 40vw;
+      }
     }
-    small {
-      font-size: 12px !important;
-    }
+  }
+  @media (min-width: 601px) and (max-width: 791px) {
     .card {
-      min-width: 380px !important;
-      padding-left: 25px;
-      padding-right: 25px;
+      min-width: 100%;
+    }
+  }
+  @media (min-width: 791px) and (max-width: 820px) {
+    .card {
+      min-width: 100%;
+    }
+  }
+  @media (min-width: 820px) and (max-width: 950px) {
+    .card {
+      &:not(.walletBox) {
+        min-width: 100%;
+      }
+      &.walletBox {
+        width: 30%;
+        min-width: unset;
+        & .icon,
+        & .icon.big_icon {
+          width: 60% !important;
+          height: 60% !important;
+          bottom: 20%;
+          right: 20%;
+          top: unset;
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+  @media (min-width: 950px) and (max-width: 1320px) {
+    .card {
+      &:not(.walletBox, .history__card) {
+        min-width: unset;
+        width: 48%;
+        grid-template-columns: 1fr 1fr;
+        .tag {
+          font-size: 12px !important;
+        }
+      }
+      &.history__card {
+        min-width: unset;
+        width: 100% !important;
+        padding: 2rem;
+      }
+      &.status__box {
+        grid-template-columns: 120px 1fr !important;
+        h1 {
+          font-size: 1.8rem;
+        }
+        span {
+          font-size: 1.4rem;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &.walletBox {
+        width: 31%;
+        min-width: unset;
+        .icon,
+        .icon.big_icon {
+          opacity: 0.08;
+        }
+      }
+    }
+  }
+  @media (min-width: 1320px) {
+    .card {
+      .tag {
+        font-size: 14px !important;
+        min-width: 70px !important;
+      }
+      &:not(.walletBox, .history__card) {
+        min-width: unset;
+        width: 49%;
+        grid-template-columns: 1fr 1fr;
+      }
+      &.history__card {
+        min-width: unset;
+        width: 100% !important;
+        padding: 2rem;
+      }
+
+      &.status__box {
+        grid-template-columns: 1fr 1fr !important;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 `}`;

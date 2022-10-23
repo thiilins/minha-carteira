@@ -14,7 +14,7 @@ const ContentHeader: React.FC<IContentHeader> = ({
   lineColor = "warning",
 }) => {
   return (
-    <Container>
+    <Container className="page__header">
       <TitleContainer tagColor={lineColor}>
         <h1>{title}</h1>
       </TitleContainer>

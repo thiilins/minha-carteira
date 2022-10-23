@@ -17,6 +17,7 @@ export const Container = styled.div`
     grid-template-columns: 40% 60%;
     background-color: ${theme.colors.secondary};
     color: ${theme.colors.primaryText};
+
   `}
 `;
 export const SideLeft = styled.aside`
@@ -51,7 +52,7 @@ export const LegendContainer = styled.ul`
     padding-left: 0.5rem;
     flex-direction: column;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 1rem;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       width: 1.5rem;
@@ -74,17 +75,18 @@ export const Legend = styled.li<ILegendProps>`
   ${({ theme, color }) => css`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     font-size: 1.4rem;
     > div {
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: ${theme.colors[color]};
-      height: 3rem;
+      min-height: 3rem;
       font-size: 1.4rem;
       font-weight: ${theme.fonts.weight.semiBold};
-      width: 5rem;
+      min-width: 4rem;
+      width: 4rem;
       border-radius: 0.5rem;
     }
   `}

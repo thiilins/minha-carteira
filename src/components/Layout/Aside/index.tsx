@@ -13,9 +13,11 @@ import {
   LogoImage,
   MenuContainer,
   MenuItem,
+  MenuBtn,
 } from "./styles";
-
+import { useAuth } from "@/contexts/AuthContext";
 const Aside: React.FC = () => {
+  const { signOut } = useAuth();
   return (
     <Container>
       <Header>
@@ -39,10 +41,10 @@ const Aside: React.FC = () => {
           <RiArrowDownLine />
           Saídas
         </MenuItem>
-        <MenuItem to="/exit">
+        <MenuBtn onClick={() => signOut()}>
           <RiLogoutBoxRLine />
           Sair
-        </MenuItem>
+        </MenuBtn>
       </MenuContainer>
     </Container>
   );

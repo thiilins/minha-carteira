@@ -101,8 +101,8 @@ const Dashboard: React.FC = () => {
         name: "Entradas",
         value: data.gains,
         percent: gainsPercent ? gainsPercent : 0,
-        color: "success",
-        graphColor: theme.colors.success,
+        color: "warning",
+        graphColor: theme.colors.warning,
       },
       {
         name: "Saídas",
@@ -180,8 +180,8 @@ const Dashboard: React.FC = () => {
           percent: amountEventual
             ? Number(((amountEventual / total) * 100).toFixed(1))
             : 0,
-          color: "success",
-          graphColor: theme.colors.success,
+          color: "warning",
+          graphColor: theme.colors.warning,
         },
       ];
     }, [data.currentExpenses, theme.colors]);
@@ -211,8 +211,8 @@ const Dashboard: React.FC = () => {
         percent: amountEventual
           ? Number(((amountEventual / total) * 100).toFixed(1))
           : 0,
-        color: "success",
-        graphColor: theme.colors.success,
+        color: "warning",
+        graphColor: theme.colors.warning,
       },
     ];
   }, [data.currentGains, theme.colors]);
@@ -244,7 +244,7 @@ const Dashboard: React.FC = () => {
         />
         <WalletBox
           title="Entradas"
-          color="success"
+          color="warning"
           amount={data.gains}
           icon="arrowUp"
           footerLabel="atualizado com base nas entradas e saídas"
@@ -261,7 +261,7 @@ const Dashboard: React.FC = () => {
         <HistoryBox
           data={historyData}
           year={yearSelected}
-          lineColorAmountEntry={theme.colors.success}
+          lineColorAmountEntry={theme.colors.warning}
           lineColorAmountOutput={theme.colors.error}
           strokeColor={theme.colors.primaryText}
         />
