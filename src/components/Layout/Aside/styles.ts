@@ -13,7 +13,7 @@ export const Container = styled.div<IContainerProps>`
     gap: 3rem;
     border-right: 1px solid ${theme.colors.primaryText}30;
     position: relative;
-    .toggle {
+    div.toggle {
       padding: 0 10px;
       display: none;
     }
@@ -46,9 +46,11 @@ export const Container = styled.div<IContainerProps>`
         flex-direction: column;
         justify-content: space-between;
       }
+
       div.toggle {
         padding: 0 10px;
         display: ${menuIsOpen ? "flex" : "none"};
+        display: flex;
       }
     }
   `}
