@@ -1,2 +1,2 @@
-import defaultTheme from "@styles/themes/light";
-export type IVariantColor = keyof typeof defaultTheme.colors;
+import { IColor } from "@styles/styled";
+export type IVariantColor = keyof IColor;

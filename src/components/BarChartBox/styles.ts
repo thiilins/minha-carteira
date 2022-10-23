@@ -16,7 +16,7 @@ export const Container = styled.div`
     align-items: center;
     grid-template-columns: 40% 60%;
     background-color: ${theme.colors.secondary};
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
   `}
 `;
 

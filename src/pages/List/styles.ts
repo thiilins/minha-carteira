@@ -23,26 +23,39 @@ export const Filters = styled.div`
 `;
 export const NoContent = styled.div`
   ${({ theme }) => css`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    width: 60%;
+    max-width: 600px;
+    min-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
     padding: 2rem;
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
     font-size: 1.8rem;
     border: 2px solid ${theme.colors.secondary};
     border-radius: 1rem;
     background-color: ${theme.colors.secondary};
-    > img {
-      width: 200px;
-      opacity: 0.6;
+    .img__box {
+      > img {
+        width: 200px;
+      }
     }
     .text__box {
       display: flex;
       gap: 1.5rem;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      > h1 {
+        font-size: 4rem;
+      }
+
+      > span {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
     }
     svg {
       width: 3rem;

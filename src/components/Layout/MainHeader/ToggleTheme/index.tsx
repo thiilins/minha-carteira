@@ -1,14 +1,9 @@
-import usePersistedState from "@hooks/usePersistedState";
 import React from "react";
-
+import { useTheme } from "@/contexts/ThemeContext";
 import { Container } from "./styles";
 
 const ToggleTheme: React.FC = () => {
-  const [userTheme, setUserTheme] = usePersistedState<"light" | "dark">(
-    "dark",
-    "defaultTheme",
-    true
-  );
+  const { toggleTheme, title } = useTheme();
   return (
     <Container>
       <div className="toggleWrapper">
@@ -16,11 +11,8 @@ const ToggleTheme: React.FC = () => {
           type="checkbox"
           className="dn"
           id="dn"
-          checked={userTheme === "dark"}
-          onChange={() => {
-            setUserTheme((prev) => (prev === "dark" ? "light" : "dark"));
-            window.location.reload();
-          }}
+          checked={title === "dark"}
+          onChange={() => toggleTheme()}
         />
         <label htmlFor="dn" className="toggle">
           <span className="toggle__handler">

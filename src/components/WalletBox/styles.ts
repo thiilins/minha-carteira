@@ -5,7 +5,7 @@ interface IContainerProps {
 }
 export const Container = styled.div<IContainerProps>`
   ${({ theme, bgColor = "success" }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
     width: 32%;
     min-width: 300px;
     background-color: ${theme.colors[bgColor]};

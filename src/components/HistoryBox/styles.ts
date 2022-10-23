@@ -1,7 +1,7 @@
 import { IVariantColor } from "@/types/colors";
 import styled, { css } from "styled-components";
 interface ILegendProps {
-  color: IVariantColor;
+  color: string;
 }
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -17,7 +17,7 @@ export const Container = styled.div`
     grid-template-columns: 1fr;
     gap: 2rem;
     background-color: ${theme.colors.secondary};
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
   `}
 `;
 
@@ -52,7 +52,7 @@ export const Legend = styled.li<ILegendProps>`
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: ${theme.colors[color]};
+      background-color: ${color};
       height: 3rem;
       font-size: 1.4rem;
       font-weight: ${theme.fonts.weight.semiBold};

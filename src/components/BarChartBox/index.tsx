@@ -8,7 +8,8 @@ import {
   SideRight,
 } from "./styles";
 // import formatCurrency from "@/utils/formatCurrency";
-import { ResponsiveContainer, Bar, BarChart, Cell } from "recharts";
+import { ResponsiveContainer, Bar, BarChart, Cell, Tooltip } from "recharts";
+import formatCurrency from "@/utils/formatCurrency";
 export interface IBarChartData {
   name: string;
   amount: number;
@@ -38,22 +39,25 @@ const BarChartBox: React.FC<IBarChartBox> = ({ data, title }) => {
       <SideRight>
         <ResponsiveContainer>
           <BarChart data={data}>
-            <Bar dataKey={"amount"}>
+            <Bar dataKey={"amount"} name="valor">
               {data.map((item, index) => (
                 <Cell key={`barCell-${index}`} fill={item.graphColor} />
               ))}
             </Bar>
-            {/* <Tooltip
+            <Tooltip
+              cursor={{ fill: "none" }}
               formatter={(value) => formatCurrency(+value)}
               labelStyle={{ color: "transparent" }}
-              // contentStyle={{
-              //   borderRadius: "2rem",
-              //   padding: "1rem",
-              //   paddingBottom: "2rem",
-              //   backgroundColor: "transparent",
-              //   border: 0,
-              // }}
-            /> */}
+              itemStyle={{
+                backgroundColor: "#fff",
+                padding: "1rem",
+                borderRadius: "1rem",
+              }}
+              contentStyle={{
+                backgroundColor: "transparent",
+                border: 0,
+              }}
+            />
           </BarChart>
         </ResponsiveContainer>
       </SideRight>

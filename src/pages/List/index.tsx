@@ -1,9 +1,9 @@
 import HistoryFinanceCard from "@/components/HistoryFinanceCard";
 import { IVariantColor } from "@/types/colors";
-import { RiErrorWarningFill } from "react-icons/ri";
 import ContentHeader from "@components/ContentHeader";
 import SelectInput from "@components/SelectInput";
 import listOfMonths from "@utils/months";
+import ghostImg from "@assets/ghost.svg";
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import formatDate from "@utils/formatDate";
@@ -165,12 +165,13 @@ const List: React.FC = () => {
           ))
         ) : (
           <NoContent>
-            <RiErrorWarningFill />
-            Nenhuma {action === "output" ? "saída" : "entrada"} encontrada para
-            o mês selecionado
-            {frequencyFilterSelected.length < 2
-              ? " com os filtros aplicados!"
-              : "!"}
+            <div className="img__box">
+              <img src={ghostImg} alt="snooze" />
+            </div>
+            <div className="text__box">
+              <h1>Ops!</h1>
+              <span>Nenhum registro encontrado!</span>
+            </div>
           </NoContent>
         )}
       </Content>

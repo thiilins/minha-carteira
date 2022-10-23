@@ -10,7 +10,7 @@ export const Container = styled.label`
       overflow: hidden;
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      color: ${theme.colors.white};
+      color: ${theme.colors.primaryText};
     }
     .toggleWrapper input {
       width: 0;

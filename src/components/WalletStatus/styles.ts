@@ -15,7 +15,7 @@ export const Container = styled.div`
     grid-template-columns: 30% 60%;
     gap: 2rem;
     background-color: ${theme.colors.secondary};
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
     > img {
       display: flex;
       width: 100%;
@@ -39,10 +39,11 @@ export const Content = styled.div`
       text-align: center;
       font-size: 1.2rem;
       line-height: 1.2;
+      font-weight: ${theme.fonts.weight.semiBold};
       padding: 1rem;
-      border: 1px solid ${theme.colors.lightBlueLight};
-      color: ${theme.colors.lightBlueLight};
-      background-color: ${theme.colors.lightBlueLight}10;
+      border: 1px solid ${theme.colors.primaryText};
+      color: ${theme.colors.primary};
+      background-color: ${theme.colors.primaryText};
       border-radius: 1rem;
     }
     span {

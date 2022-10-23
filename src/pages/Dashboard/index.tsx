@@ -11,7 +11,7 @@ import WalletBox from "../../components/WalletBox/index";
 import WalletStatus from "@components/WalletStatus";
 import listOfMonths from "@utils/months";
 import BarChartBox, { IBarChartData } from "@/components/BarChartBox";
-
+import { useTheme } from "@/contexts/ThemeContext";
 interface ISelectList {
   value: number;
   label: string;
@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
     new Date().getMonth() + 1
   );
-
+  const { theme } = useTheme();
   useEffect(() => {
     const uniqueYears: number[] = [];
     [...inputData, ...outputData].forEach((item) => {
@@ -82,14 +82,6 @@ const Dashboard: React.FC = () => {
           .map((item) => item.amount)
           .reduce((acc, item) => acc + item)
       : 0;
-    console.log({
-      gains,
-      expenses,
-      currentExpenses,
-      currentGains,
-      total: gains - expenses,
-      entries: currentGains.length + currentExpenses.length,
-    });
     return {
       gains,
       expenses,
@@ -110,18 +102,18 @@ const Dashboard: React.FC = () => {
         value: data.gains,
         percent: gainsPercent ? gainsPercent : 0,
         color: "success",
-        graphColor: "#38761d",
+        graphColor: theme.colors.success,
       },
       {
         name: "Saídas",
         value: data.expenses,
         percent: expensesPercents ? expensesPercents : 0,
         color: "error",
-        graphColor: "#c80909",
+        graphColor: theme.colors.error,
       },
     ];
     return value;
-  }, [data]);
+  }, [data, theme.colors]);
   const historyData = useMemo(() => {
     return listOfMonths
       .map((month, index) => {
@@ -180,7 +172,7 @@ const Dashboard: React.FC = () => {
             ? Number(((amountRecurrent / total) * 100).toFixed(1))
             : 0,
           color: "error",
-          graphColor: "#c80909",
+          graphColor: theme.colors.error,
         },
         {
           name: "Eventuais",
@@ -189,10 +181,10 @@ const Dashboard: React.FC = () => {
             ? Number(((amountEventual / total) * 100).toFixed(1))
             : 0,
           color: "success",
-          graphColor: "#38761d",
+          graphColor: theme.colors.success,
         },
       ];
-    }, [data.currentExpenses]);
+    }, [data.currentExpenses, theme.colors]);
   const relationGainsRecurrentVersusEventual: IBarChartData[] = useMemo(() => {
     let amountEventual = 0;
     let amountRecurrent = 0;
@@ -211,7 +203,7 @@ const Dashboard: React.FC = () => {
           ? Number(((amountRecurrent / total) * 100).toFixed(1))
           : 0,
         color: "error",
-        graphColor: "#c80909",
+        graphColor: theme.colors.error,
       },
       {
         name: "Eventuais",
@@ -220,10 +212,10 @@ const Dashboard: React.FC = () => {
           ? Number(((amountEventual / total) * 100).toFixed(1))
           : 0,
         color: "success",
-        graphColor: "#38761d",
+        graphColor: theme.colors.success,
       },
     ];
-  }, [data.currentGains]);
+  }, [data.currentGains, theme.colors]);
   return (
     <PageContainer>
       <ContentHeader title="Dashboard" lineColor="red">
@@ -269,8 +261,9 @@ const Dashboard: React.FC = () => {
         <HistoryBox
           data={historyData}
           year={yearSelected}
-          lineColorAmountEntry="#63cc35"
-          lineColorAmountOutput="#d63131"
+          lineColorAmountEntry={theme.colors.success}
+          lineColorAmountOutput={theme.colors.error}
+          strokeColor={theme.colors.primaryText}
         />
         <BarChartBox
           title="Entradas"

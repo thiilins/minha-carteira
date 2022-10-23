@@ -28,7 +28,7 @@ const WalletStatus: React.FC<IWalletStatusProps> = ({ balance, entries }) => {
           }
         : {
             img: sadImg,
-            title: "Que triste!",
+            title: "Poxa!",
             description: "Neste mês, você gastou mais do que deveria.",
             footerText:
               "Verifique seus gastos e tente cortar algumas coisas desnecessárias.",

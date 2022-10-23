@@ -19,22 +19,24 @@ interface IHistoryBoxProps {
   lineColorAmountEntry: string;
   lineColorAmountOutput: string;
   year: string | number;
+  strokeColor: string;
 }
 const HistoryBox: React.FC<IHistoryBoxProps> = ({
   data,
   lineColorAmountEntry,
   lineColorAmountOutput,
+  strokeColor,
   year,
 }) => (
   <Container className="card">
     <Header>
       <h2>Histórico de Saldo - {year}</h2>
       <LegendContainer>
-        <Legend color="success">
+        <Legend color={lineColorAmountEntry}>
           <div />
           Entradas
         </Legend>
-        <Legend color="error">
+        <Legend color={lineColorAmountOutput}>
           <div />
           Saídas
         </Legend>
@@ -45,8 +47,8 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
         data={data}
         margin={{ bottom: 5, right: 20, left: 20, top: 5 }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
-        <XAxis dataKey="month" stroke="#cecece" />
+        <CartesianGrid strokeDasharray="3 3" stroke={strokeColor} />
+        <XAxis dataKey="month" stroke={strokeColor} />
         <Tooltip
           formatter={(value) => formatCurrency(Number(value))}
           contentStyle={{

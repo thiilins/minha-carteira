@@ -10,7 +10,7 @@ export const Container = styled.div`
     padding: 1rem 2rem;
     align-items: center;
     justify-content: space-between;
-    color: ${theme.colors.white};
+    color: ${theme.colors.primaryText};
     border-bottom: 1px solid ${theme.colors.secondaryText}30;
   `}
 `;
