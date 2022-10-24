@@ -43,10 +43,10 @@ const Aside: React.FC = () => {
             <RiDashboardLine />
             Dashboard
           </MenuItem>
-          <MenuItem to="/add-new">
+          {/* <MenuItem to="/add-new">
             <RiAddFill />
             Novo Registro
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem to="/list/input">
             <RiArrowUpLine />
             Entradas

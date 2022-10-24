@@ -36,14 +36,9 @@ const List: React.FC = () => {
     "recorrente",
     "eventual",
   ]);
-  const [yearSelected, setYearSelected] = useState<number>(
-    new Date().getFullYear()
-  );
   const [data, setData] = useState<IDataState[]>([]);
-  const [monthSelected, setMonthSelected] = useState<number>(
-    new Date().getMonth() + 1
-  );
-
+  const [yearSelected, setYearSelected] = useState<number>(2020);
+  const [monthSelected, setMonthSelected] = useState<number>(6);
   const config = useMemo((): IConfigResponse => {
     return action === "output"
       ? { title: "Saídas", color: "error", values: outputData }

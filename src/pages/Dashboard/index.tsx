@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 
 import { PageContainer } from "../styles";
 import { Content } from "./styles";
@@ -19,12 +19,8 @@ interface ISelectList {
 const Dashboard: React.FC = () => {
   const [months, setMonths] = useState<ISelectList[]>([]);
   const [years, setYears] = useState<ISelectList[]>([]);
-  const [yearSelected, setYearSelected] = useState<number>(
-    new Date().getFullYear()
-  );
-  const [monthSelected, setMonthSelected] = useState<number>(
-    new Date().getMonth() + 1
-  );
+  const [yearSelected, setYearSelected] = useState<number>(2020);
+  const [monthSelected, setMonthSelected] = useState<number>(6);
   const { theme } = useTheme();
   useEffect(() => {
     const uniqueYears: number[] = [];
