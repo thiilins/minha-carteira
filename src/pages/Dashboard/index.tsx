@@ -217,65 +217,64 @@ const Dashboard: React.FC = () => {
     ];
   }, [data.currentGains, theme.colors]);
   return (
-    // <PageContainer>
-    //   <ContentHeader title="Dashboard" lineColor="red">
-    //     <SelectInput
-    //       options={months}
-    //       onChange={({ currentTarget }) =>
-    //         setMonthSelected(+currentTarget.value)
-    //       }
-    //       value={monthSelected}
-    //     />
-    //     <SelectInput
-    //       options={years}
-    //       onChange={({ currentTarget }) =>
-    //         setYearSelected(+currentTarget.value)
-    //       }
-    //       value={yearSelected}
-    //     />
-    //   </ContentHeader>
-    //   <Content>
-    //     <WalletBox
-    //       title="Saldo"
-    //       color="info"
-    //       amount={data.total}
-    //       icon="dollar"
-    //       footerLabel="atualizado com base nas entradas e saídas"
-    //     />
-    //     <WalletBox
-    //       title="Entradas"
-    //       color="warning"
-    //       amount={data.gains}
-    //       icon="arrowUp"
-    //       footerLabel="atualizado com base nas entradas e saídas"
-    //     />
-    //     <WalletBox
-    //       title="Saídas"
-    //       color="error"
-    //       amount={data.expenses}
-    //       icon="arrowDown"
-    //       footerLabel="atualizado com base nas entradas e saídas"
-    //     />
-    //     <WalletStatus balance={data.total} entries={data.entries} />
-    //     <PieChartComponent data={relationsExpensesVersusGains} />
-    //     <HistoryBox
-    //       data={historyData}
-    //       year={yearSelected}
-    //       lineColorAmountEntry={theme.colors.warning}
-    //       lineColorAmountOutput={theme.colors.error}
-    //       strokeColor={theme.colors.primaryText}
-    //     />
-    //     <BarChartBox
-    //       title="Entradas"
-    //       data={relationGainsRecurrentVersusEventual}
-    //     />
-    //     <BarChartBox
-    //       title="Saídas"
-    //       data={relationExpensivesRecurrentVersusEventual}
-    //     />
-    //   </Content>
-    // </PageContainer>
-    <></>
+    <PageContainer>
+      <ContentHeader title="Dashboard" lineColor="red">
+        <SelectInput
+          options={months}
+          onChange={({ currentTarget }) =>
+            setMonthSelected(+currentTarget.value)
+          }
+          value={monthSelected}
+        />
+        <SelectInput
+          options={years}
+          onChange={({ currentTarget }) =>
+            setYearSelected(+currentTarget.value)
+          }
+          value={yearSelected}
+        />
+      </ContentHeader>
+      <Content>
+        <WalletBox
+          title="Saldo"
+          color="info"
+          amount={data.total}
+          icon="dollar"
+          footerLabel="atualizado com base nas entradas e saídas"
+        />
+        <WalletBox
+          title="Entradas"
+          color="warning"
+          amount={data.gains}
+          icon="arrowUp"
+          footerLabel="atualizado com base nas entradas e saídas"
+        />
+        <WalletBox
+          title="Saídas"
+          color="error"
+          amount={data.expenses}
+          icon="arrowDown"
+          footerLabel="atualizado com base nas entradas e saídas"
+        />
+        <WalletStatus balance={data.total} entries={data.entries} />
+        <PieChartComponent data={relationsExpensesVersusGains} />
+        <HistoryBox
+          data={historyData}
+          year={yearSelected}
+          lineColorAmountEntry={theme.colors.warning}
+          lineColorAmountOutput={theme.colors.error}
+          strokeColor={theme.colors.primaryText}
+        />
+        <BarChartBox
+          title="Entradas"
+          data={relationGainsRecurrentVersusEventual}
+        />
+        <BarChartBox
+          title="Saídas"
+          data={relationExpensivesRecurrentVersusEventual}
+        />
+      </Content>
+    </PageContainer>
   );
 };
 
