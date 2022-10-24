@@ -45,8 +45,8 @@ const List: React.FC = () => {
       : { title: "Entradas", color: "info", values: inputData };
   }, [action]);
   useEffect(() => {
-    setMonthSelected(new Date().getMonth() + 1);
-    setYearSelected(new Date().getFullYear());
+    setMonthSelected(6);
+    setYearSelected(2020);
     setFrequencyFilterSelected(["recorrente", "eventual"]);
   }, [action]);
   const dropdownData = useMemo(() => {
