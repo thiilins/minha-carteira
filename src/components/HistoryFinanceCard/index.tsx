@@ -15,7 +15,7 @@ const HistoryFinanceCard: React.FC<IHistoryFinanceCardProps> = ({
   title,
 }) => {
   return (
-    <Container className="card">
+    <Container>
       <Tag color={tagColor} />
       <TitleContainer>
         <span>{title}</span>
