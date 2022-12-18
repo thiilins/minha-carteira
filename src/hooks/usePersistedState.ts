@@ -10,7 +10,6 @@ function usePersistedState<T>(
 ): Response<T> {
   const [state, setState] = useState<T>(() => {
     const storageValue = localStorage.getItem(`${prefix}:${key}`);
-
     if (storageValue) {
       return isString ? storageValue : JSON.parse(storageValue);
     } else {

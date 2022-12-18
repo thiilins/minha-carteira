@@ -1,26 +1,15 @@
 import React from "react";
-import Layout from "@components/Layout";
-import usePersistedState from "@hooks/usePersistedState";
 import GlobalStyles from "@styles/globals";
-import dark from "@styles/themes/dark";
-import light from "@styles/themes/light";
-import Dashboard from "@pages/Dashboard";
+import Routes from "@/routes";
+import { useTheme } from "@/contexts/ThemeContext";
 import { ThemeProvider } from "styled-components";
 export const App: React.FC = () => {
-  const [userTheme] = usePersistedState<"light" | "dark">(
-    "dark",
-    "defaultTheme",
-    true
-  );
+  const { theme } = useTheme();
   return (
-    <>
-      <ThemeProvider theme={userTheme === "dark" ? dark : light}>
-        <GlobalStyles />
-        <Layout>
-          <Dashboard />
-        </Layout>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Routes />
+    </ThemeProvider>
   );
 };
 
