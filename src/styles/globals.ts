@@ -148,7 +148,7 @@ export default createGlobalStyle`${({ theme }) => css`
       }
     }
   }
-  @media (min-width: 601px) and (max-width: 791px) {
+  @media (min-width: 601px) and (max-width: 790px) {
     .card {
       min-width: 100%;
       & h2 {

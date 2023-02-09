@@ -42,7 +42,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
         </Legend>
       </LegendContainer>
     </Header>
-    <ResponsiveContainer minHeight={150}>
+    <ResponsiveContainer minHeight={150} minWidth={300}>
       <LineChart
         data={data}
         margin={{ bottom: 5, right: 20, left: 20, top: 5 }}
@@ -50,7 +50,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
         <CartesianGrid strokeDasharray="3 3" stroke={strokeColor} />
         <XAxis dataKey="month" stroke={strokeColor} />
         <Tooltip
-          formatter={(value) => formatCurrency(Number(value))}
+          formatter={(value: any) => formatCurrency(Number(value))}
           contentStyle={{
             borderRadius: "2rem",
             padding: "1rem",

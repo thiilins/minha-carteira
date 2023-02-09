@@ -5,7 +5,7 @@ interface ILegendProps {
 }
 export const Container = styled.div`
   ${({ theme }) => css`
-    width: 49%;
+    max-width: 50%;
     height: 250px;
     position: relative;
     padding: 2rem !important;
@@ -17,7 +17,6 @@ export const Container = styled.div`
     grid-template-columns: 40% 60%;
     background-color: ${theme.colors.secondary};
     color: ${theme.colors.primaryText};
-
   `}
 `;
 export const SideLeft = styled.aside`
