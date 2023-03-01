@@ -14,10 +14,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
   },
-  "include": ["src", "src/**/**/**/*"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "files": ["./src/styles/styled.d.ts"],
   "extends": "./tsconfig.paths.json"
 }
