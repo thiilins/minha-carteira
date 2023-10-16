@@ -1,4 +1,8 @@
+<div align="center">
+  
 🇧🇷 [Português](./README.md) | 🇺🇸 [English](./README_EN.md) | 🇪🇸 [Español](./README_ES.md)
+
+</div>
 
 # Minha Carteira
 
@@ -68,31 +72,23 @@ Acesse relatórios detalhados com gráficos e métricas para uma análise abrang
 
 ## ⚙️ Instalação e Uso
 
-Clone este repositório:
-
 ```bash
+# Clone este repositório:
 git clone https://github.com/thiilins/minha-carteira.git
-```
 
-Acesse o diretório do projeto:
-
-```bash
+# Acesse o diretório do projeto:
 cd minha-carteira
-```
 
-Instale as dependências:
-
-```bash
+# Instale as dependências:
 yarn
-```
+# ou
+npm install
 
-Inicie a aplicação:
-
-```bash
+# Inicie a aplicação:
 yarn dev
-```
 
-Acesse a aplicação em seu navegador em: `http://localhost:3000`
+# Acesse a aplicação em seu navegador em: `http://localhost:3000`
+```
 
 ## 🛠 Tecnologias
 
