@@ -1,6 +1,10 @@
+<div align="center">
+  
 🇧🇷 [Português](./README.md) | 🇺🇸 [English](./README_EN.md) | 🇪🇸 [Español](./README_ES.md)
 
-# Minha carteira
+</div>
+
+# Mi  Cartera
 
 <div align="center">
 
