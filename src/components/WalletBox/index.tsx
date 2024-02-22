@@ -1,4 +1,4 @@
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 import React, { useCallback } from "react";
 // import dollarIcon from "@assets/dollar.svg";
 // import arrowUpIcon from "@assets/arrow-up.svg";

@@ -1,4 +1,4 @@
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 import React from "react";
 
 import { Container, Tag, AmountContainer, TitleContainer } from "./styles";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie, PieChart, Tooltip, Cell, ResponsiveContainer } from "recharts";
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 
 import {
   Container,

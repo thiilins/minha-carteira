@@ -1,4 +1,4 @@
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 import styled, { css } from "styled-components";
 interface ILegendProps {
   color: IVariantColor;

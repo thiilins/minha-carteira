@@ -1,5 +1,5 @@
 import HistoryFinanceCard from "@/components/HistoryFinanceCard";
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 import ContentHeader from "@components/ContentHeader";
 import SelectInput from "@components/SelectInput";
 import listOfMonths from "@utils/months";

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { IVariantColor } from "@/types/colors";
+import { IVariantColor } from "@/@types/colors";
 interface IFilterBtnProps {
   tagColor: IVariantColor;
   isActive?: boolean;

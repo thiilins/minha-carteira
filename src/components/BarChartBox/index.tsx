@@ -1,5 +1,5 @@
 import React from "react";
-import { IVariantColor } from "../../types/colors";
+import { IVariantColor } from "../../@types/colors";
 import {
   Container,
   Legend,

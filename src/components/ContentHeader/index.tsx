@@ -2,7 +2,7 @@ import React from "react";
 import SelectInput from "../SelectInput";
 
 import { Container, Controls, TitleContainer } from "./styles";
-import { IVariantColor } from "../../types/colors";
+import { IVariantColor } from "../../@types/colors";
 interface IContentHeader {
   title?: string;
   children: React.ReactNode;
