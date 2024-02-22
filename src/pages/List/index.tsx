@@ -1,4 +1,3 @@
-import HistoryFinanceCard from "@/components/HistoryFinanceCard";
 import { IVariantColor } from "@/@types/colors";
 import ContentHeader from "@components/ContentHeader";
 import SelectInput from "@components/SelectInput";
@@ -11,6 +10,8 @@ import formatCurrency from "@utils/formatCurrency";
 import { PageContainer } from "../styles";
 import { Content, Filters, FilterBtn, NoContent } from "./styles";
 import { inputData, outputData } from "@/data";
+import { actualMonth, actualYear } from "@/utils/getActualDate";
+import HistoryFinanceCard from "@components/HistoryFinanceCard";
 interface IListData {
   description: string;
   amount: string;
@@ -37,18 +38,25 @@ const List: React.FC = () => {
     "eventual",
   ]);
   const [data, setData] = useState<IDataState[]>([]);
-  const [yearSelected, setYearSelected] = useState<number>(2020);
-  const [monthSelected, setMonthSelected] = useState<number>(6);
+  const [yearSelected, setYearSelected] = useState<number>(actualYear);
+  const [monthSelected, setMonthSelected] = useState<number>(actualMonth);
+  const listMonths = listOfMonths.map((month, index) => {
+    return {
+      value: index + 1,
+      label: month,
+    };
+  });
+  const [months, setMonths] = useState(listMonths.slice(0, actualMonth));
   const config = useMemo((): IConfigResponse => {
     return action === "output"
       ? { title: "Saídas", color: "error", values: outputData }
       : { title: "Entradas", color: "info", values: inputData };
   }, [action]);
   useEffect(() => {
-    setMonthSelected(6);
-    setYearSelected(2020);
+    setMonthSelected(actualMonth);
+    setYearSelected(actualYear);
     setFrequencyFilterSelected(["recorrente", "eventual"]);
-  }, [action]);
+  }, [action, actualMonth, actualYear]);
   const dropdownData = useMemo(() => {
     const uniqueYears: number[] = [];
     config.values.forEach((item) => {
@@ -65,14 +73,9 @@ const List: React.FC = () => {
           label: String(item),
         }))
         .reverse(),
-      months: listOfMonths.map((month, index) => {
-        return {
-          value: index + 1,
-          label: month,
-        };
-      }),
     };
   }, [config.values]);
+
   useEffect(() => {
     const response: IDataState[] = config.values
       .filter((item) => {
@@ -111,11 +114,22 @@ const List: React.FC = () => {
     },
     [frequencyFilterSelected]
   );
+  const changeYearSelected = useCallback(
+    (year: number) => {
+      let newMonths = listMonths.slice(0, actualMonth);
+
+      setMonths((prev) =>
+        prev.length === newMonths.length ? prev : newMonths
+      );
+      setYearSelected(year);
+    },
+    [listMonths, actualYear, actualMonth]
+  );
   return (
     <PageContainer>
       <ContentHeader title={config.title} lineColor={config.color}>
         <SelectInput
-          options={dropdownData.months}
+          options={months}
           onChange={({ currentTarget }) =>
             setMonthSelected(+currentTarget.value)
           }
@@ -124,7 +138,7 @@ const List: React.FC = () => {
         <SelectInput
           options={dropdownData.years}
           onChange={({ currentTarget }) =>
-            setYearSelected(+currentTarget.value)
+            changeYearSelected(+currentTarget.value)
           }
           value={yearSelected}
         />

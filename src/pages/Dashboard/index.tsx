@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 
 import { PageContainer } from "../styles";
 import { Content } from "./styles";
@@ -12,39 +12,61 @@ import WalletStatus from "@components/WalletStatus";
 import listOfMonths from "@utils/months";
 import BarChartBox, { IBarChartData } from "@/components/BarChartBox";
 import { useTheme } from "@/contexts/ThemeContext";
+import { actualMonth, actualYear } from "@/utils/getActualDate";
+
 interface ISelectList {
   value: number;
   label: string;
 }
+
 const Dashboard: React.FC = () => {
-  const [months, setMonths] = useState<ISelectList[]>([]);
-  const [years, setYears] = useState<ISelectList[]>([]);
-  const [yearSelected, setYearSelected] = useState<number>(2020);
-  const [monthSelected, setMonthSelected] = useState<number>(6);
   const { theme } = useTheme();
-  useEffect(() => {
-    const uniqueYears: number[] = [];
-    [...inputData, ...outputData].forEach((item) => {
-      const year = new Date(item.date).getFullYear();
-      const actualYear = new Date().getFullYear();
-      if (!uniqueYears.includes(year)) uniqueYears.push(year);
-      if (!uniqueYears.includes(actualYear)) uniqueYears.push(actualYear);
-    });
-    const months = listOfMonths.map((month, index) => {
-      return {
+  const [yearSelected, setYearSelected] = useState<number>(actualYear);
+  const [monthSelected, setMonthSelected] = useState<number>(actualMonth);
+  const listMonths = useMemo(() => {
+    return listOfMonths.map(
+      (month, index) => ({
         value: index + 1,
         label: month,
-      };
-    });
-    const years = uniqueYears
-      .map((item) => ({
-        value: item,
-        label: String(item),
-      }))
-      .reverse();
-    setMonths(months);
+      }),
+      []
+    );
+  }, [yearSelected, actualYear, actualMonth]);
+
+  const [months, setMonths] = useState<ISelectList[]>(
+    listMonths.slice(0, actualMonth)
+  );
+  const [years, setYears] = useState<ISelectList[]>([]);
+  useEffect(() => {
+    const uniqueYears = new Set(
+      [
+        ...inputData,
+        ...outputData,
+        { date: new Date().toISOString() }, // Inclui o ano atual garantindo que ele esteja na lista
+      ].map((item) => new Date(item.date).getFullYear())
+    );
+
+    const years = Array.from(uniqueYears)
+      .sort((a, b) => b - a)
+      .map((year) => ({
+        value: year,
+        label: String(year),
+      }));
+
     setYears(years);
   }, []);
+
+  const changeYearSelected = useCallback(
+    (year: number) => {
+      let newMonths = listMonths.slice(0, actualMonth);
+
+      setMonths((prev) =>
+        prev.length === newMonths.length ? prev : newMonths
+      );
+      setYearSelected(year);
+    },
+    [listMonths, actualYear, actualMonth]
+  );
 
   const data = useMemo(() => {
     const currentExpenses = outputData
@@ -110,6 +132,7 @@ const Dashboard: React.FC = () => {
     ];
     return value;
   }, [data, theme.colors]);
+
   const historyData = useMemo(() => {
     return listOfMonths
       .map((month, index) => {
@@ -149,6 +172,7 @@ const Dashboard: React.FC = () => {
         );
       });
   }, [yearSelected]);
+
   const relationExpensivesRecurrentVersusEventual: IBarChartData[] =
     useMemo(() => {
       let amountEventual = 0;
@@ -181,6 +205,7 @@ const Dashboard: React.FC = () => {
         },
       ];
     }, [data.currentExpenses, theme.colors]);
+
   const relationGainsRecurrentVersusEventual: IBarChartData[] = useMemo(() => {
     let amountEventual = 0;
     let amountRecurrent = 0;
@@ -212,6 +237,7 @@ const Dashboard: React.FC = () => {
       },
     ];
   }, [data.currentGains, theme.colors]);
+
   return (
     <PageContainer>
       <ContentHeader title="Dashboard" lineColor="red">
@@ -225,7 +251,7 @@ const Dashboard: React.FC = () => {
         <SelectInput
           options={years}
           onChange={({ currentTarget }) =>
-            setYearSelected(+currentTarget.value)
+            changeYearSelected(+currentTarget.value)
           }
           value={yearSelected}
         />
