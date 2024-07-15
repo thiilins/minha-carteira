@@ -26,7 +26,7 @@
     "@types/recharts": "^1.8.24",
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^4.0.0",
-    "rimraf": "^5.0.5",
+    "rimraf": "^6.0.1",
     "typescript": "^5.0.3",
     "vite": "^5.0.10",
     "vite-plugin-svgr": "^4.0.0",
